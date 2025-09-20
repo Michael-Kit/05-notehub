@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# 📝 NoteHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NoteHub is a React + TypeScript application for managing personal notes. It allows users to create, search, paginate, and delete notes using a clean UI and a powerful backend API.
 
-Currently, two official plugins are available:
+Live demo: [notehub-mu-gold.vercel.app](https://05-notehub-mu-gold.vercel.app/)  
+Backend API: [NoteHub Swagger Docs](https://notehub-public.goit.study/api/docs/#/Auth/createAuthToken)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔍 Search notes with debounce
+- ➕ Create new notes via modal form
+- ❌ Delete notes with instant cache update
+- 📄 Paginate through notes (12 per page)
+- ✅ Form validation with Formik + Yup
+- 🔄 Data fetching and caching via TanStack Query
+- 💅 Modular styling with CSS Modules
+- 🔐 Secure token-based API access via environment variable
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Axios](https://axios-http.com/)
+- [Formik](https://formik.org/)
+- [Yup](https://github.com/jquense/yup)
+- [React Paginate](https://www.npmjs.com/package/react-paginate)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [Modern Normalize](https://github.com/sindresorhus/modern-normalize)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📁 Project Structure
+src/ ├── components/ │ ├── App/ │ ├── NoteList/ │ ├── NoteForm/ │ ├── Modal/ │ ├── Pagination/ │ ├── SearchBox/ │ ├── Loader/ │ ├── ErrorMessage/ │ └── EmptyState/ ├── services/ │ └── noteService.ts ├── types/ │ └── note.ts ├── index.css └── main.tsx
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚙️ Getting Started
+
+1. Clone the repository:
+  
+   git clone https://github.com/Michael-Kit/05-notehub.git
+   cd 05-notehub
+2. Install dependencies:
+
+npm install
+
+3. Create a .env file:
+
+VITE_NOTEHUB_TOKEN=your_api_token_here
+You can generate your token via the NoteHub API by submitting your email.
+
+4. Start the development server:
+
+npm run dev
+
+5. Task Compliance (GoIT)
+This project fully meets the requirements of the NoteHub task:
+
+✅ Uses Vite + TypeScript
+
+✅ All components are in separate folders with matching .tsx and .module.css files
+
+✅ Uses TanStack Query for all data operations
+
+✅ Uses Axios for HTTP requests
+
+✅ Token stored securely via .env
+
+✅ Pagination, search, modal, and form logic implemented
+
+✅ Includes separate components for loading, error, and empty states
+
+👤 Author
+Name: Michael Kit
+
+Course: GoIT Fullstack Developer
+
+Task: NoteHub — Homework #5
+
