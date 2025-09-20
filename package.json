@@ -1,5 +1,5 @@
 {
-  "name": "04-react-query",
+  "name": "05-notehub",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,7 +18,9 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
-    "react-paginate": "^8.3.0"
+    "react-paginate": "^8.3.0",
+    "use-debounce": "^10.0.6",
+    "yup": "^1.7.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
