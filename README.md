@@ -11,12 +11,13 @@ Backend API: [NoteHub Swagger Docs](https://notehub-public.goit.study/api/docs/#
 
 - 🔍 Search notes with debounce
 - ➕ Create new notes via modal form
-- ❌ Delete notes with instant cache update
+- ❌ Delete notes with instant cache update (via TanStack Query mutation)
 - 📄 Paginate through notes (12 per page)
 - ✅ Form validation with Formik + Yup
-- 🔄 Data fetching and caching via TanStack Query
+- 🔄 Data fetching and caching via TanStack Query (`useQuery`, `useMutation`, `placeholderData`)
 - 💅 Modular styling with CSS Modules
 - 🔐 Secure token-based API access via environment variable
+- ♿ Accessible modal with ARIA attributes
 
 ---
 
@@ -36,7 +37,24 @@ Backend API: [NoteHub Swagger Docs](https://notehub-public.goit.study/api/docs/#
 ---
 
 ## 📁 Project Structure
-src/ ├── components/ │ ├── App/ │ ├── NoteList/ │ ├── NoteForm/ │ ├── Modal/ │ ├── Pagination/ │ ├── SearchBox/ │ ├── Loader/ │ ├── ErrorMessage/ │ └── EmptyState/ ├── services/ │ └── noteService.ts ├── types/ │ └── note.ts ├── index.css └── main.tsx
+src/
+├── components/
+│   ├── App/
+│   ├── NoteList/
+│   ├── NoteForm/
+│   ├── Modal/
+│   ├── Pagination/
+│   ├── SearchBox/
+│   ├── Loader/
+│   ├── ErrorMessage/
+│   └── EmptyState/
+├── services/
+│   └── noteService.ts
+├── types/
+│   └── note.ts
+├── index.css
+└── main.tsx
+
 
 ---
 
@@ -77,9 +95,9 @@ This project fully meets the requirements of the NoteHub task:
 ✅ Includes separate components for loading, error, and empty states
 
 👤 Author
-Name: Michael Kit
+Name: Mykhaylo(Michael) Kit
 
 Course: GoIT Fullstack Developer
 
-Task: NoteHub — Homework #5
+Task: NoteHub — Homework # 05-notehub
 

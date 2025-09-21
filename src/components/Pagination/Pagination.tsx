@@ -1,43 +1,29 @@
 import ReactPaginate from 'react-paginate';
-import { useQuery } from '@tanstack/react-query';
-import { fetchNotes } from '../../services/noteService';
 import css from './Pagination.module.css';
 
 interface PaginationProps {
   page: number;
   onPageChange: (selected: number) => void;
-  search: string;
+  totalPages: number;
 }
 
-const Pagination = ({ page, onPageChange, search }: PaginationProps) => {
-  const { data } = useQuery({
-    queryKey: ['notes', page, search],
-    queryFn: () => fetchNotes({ page, perPage: 12, search }),
-  });
-
-  if (!data || data.totalPages <= 1) return null;
+const Pagination = ({ page, onPageChange, totalPages }: PaginationProps) => {
+  const handlePageClick = ({ selected }: { selected: number }) => {
+    onPageChange(selected + 1);
+  };
 
   return (
     <ReactPaginate
-      className={css.pagination}
-      pageClassName={css.page}
-      activeClassName={css.active}
-      previousClassName={css.page}
-      nextClassName={css.page}
-      breakClassName={css.page}
-      pageLinkClassName={css.link}
-      previousLinkClassName={css.link}
-      nextLinkClassName={css.link}
-      breakLinkClassName={css.link}
-      pageCount={data.totalPages}
-      forcePage={page - 1}
-      onPageChange={(event) => onPageChange(event.selected + 1)}
-      previousLabel="<"
-      nextLabel=">"
       breakLabel="..."
-      marginPagesDisplayed={1}
+      nextLabel=">"
+      onPageChange={handlePageClick}
       pageRangeDisplayed={3}
-      renderOnZeroPageCount={null}
+      pageCount={totalPages}
+      previousLabel="<"
+      forcePage={page - 1}
+      containerClassName={css.pagination}
+      activeClassName={css.active}
+      disabledClassName={css.disabled}
     />
   );
 };
